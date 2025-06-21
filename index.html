@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C64 PriceCalc</title>
+  <style>
+    body {
+      background-color: #0400a0;
+      color: #80ff80;
+      font-family: monospace;
+      font-size: 18px;
+      padding: 20px;
+    }
+    input, button {
+      background: #0400a0;
+      color: #80ff80;
+      border: 1px solid #80ff80;
+      font-family: monospace;
+      font-size: 18px;
+      margin: 5px 0;
+      width: 100%;
+      padding: 5px;
+    }
+    .output {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>READY.</h2>
+  <label>PREZZO LORDO:</label>
+  <input type="number" id="prezzo" step="0.01">
+  <label>SCONTO 1 (%):</label>
+  <input type="number" id="sconto1" step="0.01">
+  <label>SCONTO 2 (%):</label>
+  <input type="number" id="sconto2" step="0.01">
+  <label>MARGINE DI VENDITA (%):</label>
+  <input type="number" id="margine" step="0.01">
+  <button onclick="calcola()">RUN</button>
+  <div class="output" id="risultato"></div>
+
+  <script>
+    function calcola() {
+      let prezzo = parseFloat(document.getElementById("prezzo").value) || 0;
+      let s1 = parseFloat(document.getElementById("sconto1").value) || 0;
+      let s2 = parseFloat(document.getElementById("sconto2").value) || 0;
+      let m = parseFloat(document.getElementById("margine").value) || 0;
+
+      let netto1 = prezzo * (1 - s1 / 100);
+      let netto2 = netto1 * (1 - s2 / 100);
+      let vendita = netto2 / (1 - m / 100);
+
+      document.getElementById("risultato").innerHTML =
+        ">>> NETTO = " + netto2.toFixed(2) + " €<br>" +
+        ">>> VENDITA = " + vendita.toFixed(2) + " €";
+    }
+  </script>
+</body>
+</html>
