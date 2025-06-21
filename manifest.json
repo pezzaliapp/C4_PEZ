@@ -1,0 +1,20 @@
+{
+  "name": "C64_PEZ – Retro PriceCalc",
+  "short_name": "C64_PEZ",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0400A0",
+  "theme_color": "#0400A0",
+  "icons": [
+    {
+      "src": "C64_PEZ-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "C64_PEZ-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
