@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C64 PriceCalc</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="C64_PEZ-192.png" type="image/png">
+  <meta name="theme-color" content="#0400A0">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log("Service Worker registrato"))
+          .catch(err => console.log("Service Worker errore: ", err));
+      });
+    }
+  </script>
   <style>
     body {
       background-color: #0400a0;
